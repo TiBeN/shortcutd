@@ -1,7 +1,7 @@
 shortcutd
 =========
 
-Launch commands when pressing keys combinations. Some features:
+Launch commands when pressing keys combinations. Key features:
 
 -   Reads Kernel input device nodes directly so there is no need of any
     graphical environment and works whatever the launched software
@@ -13,10 +13,10 @@ Launch commands when pressing keys combinations. Some features:
     needed. There is no need for it to be plugged when `shortcutd` is
     launched.
 
-`shortcutd` is a daemon written in NodeJS. It works on Linux and has been
-designed to execute low level/administrative commands like `systemctl start
-some.service` using keyboard shortcuts, on headless or embedded systems for
-example but obviously not limited to. 
+`shortcutd` is a daemon written in `NodeJS`. It works on **Linux** and
+has been designed to execute low level/administrative commands like
+`systemctl start some.service` using keyboard shortcuts, on headless or
+embedded systems for example but is obviously not limited to.
 
 Installation
 ------------
@@ -44,12 +44,13 @@ working configuration file:
 
 ### Device node
 
-The input device node path of the keyboard must be specified via the `device`
-property. Input device nodes are generaly located in `/dev/input/`. If you are
-not sure which device node corresponds to the keyboard you want to use — on
-some systems they are simply labeled `event[0-9]+` — you can try them one by
-one by launching `shortcutd` in verbose mode and see if pressed keys are
-displayed to your terminal (see `Usage` below).
+The input device node path of the keyboard must be specified via the
+`device` property. Input device nodes are generaly located in
+`/dev/input/`. If you are not sure which device node corresponds to the
+keyboard you want to use — on some systems they are simply labeled
+`event[0-9]+` — you can try them one by one by launching `shortcutd` in
+verbose mode and see if pressed keys are displayed to your terminal (see
+`Usage` below).
 
 About (un|re)plug resilience: It is important for `shortcutd` to be able
 to detect your keyboard when (re)plugged that the device node has the
@@ -58,8 +59,8 @@ same path. It is sometimes the case, like links inside the
 on Linux systems through [`udev`](https://en.wikipedia.org/wiki/Udev)
 rules.
 
-Device nodes are only readable by `root` by default. This can be configured
-with `udev` rules too.
+Device nodes are only readable by `root` by default. This can be
+configured with `udev` rules too.
 
 ### Shortcuts configuration
 
@@ -88,9 +89,20 @@ Usage
     $ shortcutd [-v] <config-file>
 
 `-v` option enables verbose mode. Additionnaly to common verbose logs,
-every keys press/releases events are logged. This is especially
-useful to test device nodes and to get the name of the key
-codes.
+every keys press/releases events are logged. This is especially useful
+to test device nodes and to get the name of the key codes.
+
+`shortcutd` does not daemonize itself but can easily be launched like a
+systemd service:
+
+    [Unit]
+    Description=Shortcutd
+
+    [Install]
+    WantedBy=multi-user.target
+
+    [Service]
+    ExecStart=/usr/bin/shortcutd /usr/local/etc/shortcutd.json
 
 Known issues and improvments
 ----------------------------
@@ -100,8 +112,9 @@ Known issues and improvments
     kernel event codes have been implemented.
 
 -   Only english key mappings are supported. It means pressing a `a`
-    char. using an azerty keyboard is recorded as a `q` char. This should 
-    not be an issue. 
+    char using an azerty keyboard is recorded as a `q` char. If key
+    codes are configured as appearing in verbose mode this should not be
+    an issue.
 
 Contributions
 -------------
