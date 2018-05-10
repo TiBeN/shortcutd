@@ -1,0 +1,37 @@
+#!/usr/bin/env node
+
+/**
+ * shortcutd cli launcher
+ */
+const shortcutd = require('../lib/shortcutd');
+const args = process.argv.slice(2);
+
+/**
+ * Display usage 
+ */
+function showUsage () {
+    console.log('shortcutd\n');
+    console.log('Usage:\n');
+    console.log('   shortcutd [-v] <config-file>\n');
+}
+
+// Parse and validate cli args
+
+var verbose = false;
+const verboseIndex = args.indexOf('-v')
+if (verboseIndex !== -1) {
+    verbose = true;
+    args.splice(verboseIndex, verboseIndex + 1);
+}
+
+if (args.length !== 1) {
+    showUsage();
+    process.exit(2);
+}
+
+var config = args[0];
+
+// Run shortcutd 
+
+shortcutd.verbose(verbose);
+shortcutd.run(config);

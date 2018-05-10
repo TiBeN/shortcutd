@@ -1,0 +1,12 @@
+{
+    "device": "/dev/input/by-id/usb-Logitech_USB_Keyboard-event-kbd",
+    "shortcuts": [{
+        "keys": "KEY_LEFTCTRL+KEY_LEFTALT+KEY_1",
+        "blocking": true,
+        "command": "echo Hello World!; sleep 5" 
+    }, {
+        "keys": "KEY_LEFTCTRL+KEY_LEFTALT+KEY_2",
+        "blocking": false,
+        "command": "echo Hello World!"
+    },]
+}
