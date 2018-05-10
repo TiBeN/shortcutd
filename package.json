@@ -3,6 +3,13 @@
     "version": "1.0.0",
     "description": "Launch commands when pressing keys combinations",
     "keywords": "keyboard shortcuts hotkeys daemon cli command exec device input linux",
+    "homepage": "https://github.com/TiBeN/shortcutd",
     "License": "Apache-2.0",
-    "author": "Benjamin Legendre <jeff58888@hotmail.com> (https://github.com/TiBeN)"
+    "author": "Benjamin Legendre <jeff58888@hotmail.com> (https://github.com/TiBeN)",
+    "bin": "./bin/shortcutd",
+    "repository": "github:TiBeN/shortcutd",
+    "os": [ "linux" ],
+    "engines": {
+        "node": ">=5.10.0"
+    }
 }

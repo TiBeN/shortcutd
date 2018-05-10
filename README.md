@@ -21,7 +21,7 @@ example but obviously not limited to.
 Installation
 ------------
 
-    NPM publishing in progress...
+    $ npm install -g shortcutd
 
 Configuration
 -------------
