@@ -39,7 +39,7 @@ working configuration file:
             "keys": "KEY_LEFTCTRL+KEY_LEFTALT+KEY_2",
             "blocking": false,
             "command": "echo Hello World!"
-        },]
+        }]
     }
 
 ### Device node
@@ -69,10 +69,10 @@ configuration object is defined by theses three properties:
 
 #### keys
 
-Define the keys combinations that will spawn the command when pressed.
-Each key is separated by a `+` char. You can launch `shortcutd` in
-verbose mode without any shortcuts configured to print the codes of the
-keys in your terminal when they are pressed.
+Define the keys combinations that will spawn the command when pressed.  Each
+key code is separated by a `+` char. You can launch `shortcutd` in verbose mode
+without any shortcuts configured to print the codes of the keys in your
+terminal when they are pressed.
 
 #### blocking
 
@@ -92,8 +92,8 @@ Usage
 every keys press/releases events are logged. This is especially useful
 to test device nodes and to get the name of the key codes.
 
-`shortcutd` does not daemonize itself but can easily be launched like a
-systemd service:
+`shortcutd` does not daemonize itself but can easily be launched like a systemd
+service. Simply put the following into a systemd service configuration file: 
 
     [Unit]
     Description=Shortcutd
