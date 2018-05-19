@@ -89,11 +89,11 @@ Usage
     $ shortcutd [-v] <config-file>
 
 `-v` option enables verbose mode. Additionnaly to common verbose logs,
-every keys press/releases events are logged. This is especially useful
+every key press/release events are logged. This is especially useful
 to test device nodes and to get the name of the key codes.
 
-`shortcutd` does not daemonize itself but can easily be launched like a systemd
-service. Simply put the following into a systemd service configuration file: 
+`shortcutd` does not daemonize itself but can easily be launched as a `systemd`
+service. Simply put the following into a `systemd service configuration file`: 
 
     [Unit]
     Description=Shortcutd
