@@ -39,6 +39,11 @@ working configuration file:
             "keys": "KEY_LEFTCTRL+KEY_LEFTALT+KEY_2",
             "blocking": false,
             "command": "echo Hello World!"
+        }, {
+            "keys": "KEY_LEFTCTRL+KEY_LEFTALT+KEY_2",
+            "blocking": false,
+            "release": true,
+            "command": "echo key released"
         }]
     }
 
@@ -82,6 +87,10 @@ spawned before allowing the user to spawn it again.
 #### command
 
 The command to spawn when the keys combinations are pressed
+
+#### release
+
+Specify the command to be triggered on key release instead of keypress.
 
 Usage
 -----
