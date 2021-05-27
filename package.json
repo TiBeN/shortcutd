@@ -1,6 +1,6 @@
 {
     "name": "shortcutd",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Launch commands when pressing keys combinations",
     "keywords": "keyboard shortcuts hotkeys daemon cli command exec device input linux",
     "homepage": "https://github.com/TiBeN/shortcutd",
